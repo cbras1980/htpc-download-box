@@ -42,7 +42,7 @@ services:
       - ${ROOT}/downloads/torrent-blackhole:/downloads # place where to put .torrent files for manual download
       - ${ROOT}/config/jackett:/config # config files
     ports:
-      - ${VPN_GW_IP}:9117:9117
+      - "${VPN_GW_IP}:9117:9117"
 
 
   nzbget:
@@ -73,7 +73,7 @@ services:
       - ${ROOT}/complete/tv:/tv # tv shows folder
       - ${ROOT}/downloads:/downloads # download folder
     ports:
-      - ${VPN_GW_IP}:8989:8989
+      - "${VPN_GW_IP}:8989:8989"
 
   radarr:
     container_name: radarr
@@ -90,7 +90,7 @@ services:
       - ${ROOT}/complete/movies:/movies # movies folder
       - ${ROOT}/downloads:/downloads # download folder
     ports:
-      - ${VPN_GW_IP}:7878:7878
+      - "${VPN_GW_IP}:7878:7878"
 
   plex-server:
     container_name: plex-server
@@ -119,4 +119,4 @@ services:
       - ${ROOT}/complete/movies:/movies # movies folder
       - ${ROOT}/complete/tv:/tv # tv shows folder
     ports:
-      - ${VPN_GW_IP}:6767:6767
+      - "${VPN_GW_IP}:6767:6767"
