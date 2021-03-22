@@ -93,9 +93,9 @@ services:
       - TZ=${TZ} # timezone, defined in .env
     network_mode: host
     volumes:
-      - ${ROOT}/config/plex/db:/config # plex database
-      - ${ROOT}/config/plex/transcode:/transcode # temp transcoded files
-      - ${ROOT}/complete:/data # media library
+      - ${ROOT}/config/plex:/config
+      - ${ROOT}/complete/movies:/movies
+      - ${ROOT}/complete/tv:/tv
 
   bazarr:
     container_name: bazarr
