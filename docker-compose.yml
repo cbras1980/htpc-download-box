@@ -73,6 +73,8 @@ services:
       - ${ROOT}/downloads:/downloads # download folder
     ports:
       - "${VPN_GW_IP}:8989:8989"
+    links:
+      - "deluge:deluge"
 
   radarr:
     container_name: radarr
@@ -89,6 +91,8 @@ services:
       - ${ROOT}/downloads:/downloads # download folder
     ports:
       - "${VPN_GW_IP}:7878:7878"
+    links:
+      - "deluge:deluge"
 
   plex:
     container_name: plex
