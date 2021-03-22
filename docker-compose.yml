@@ -55,6 +55,8 @@ services:
     volumes:
       - ${ROOT}/downloads:/downloads # download folder
       - ${ROOT}/config/nzbget:/config # config files
+    ports:
+      - "${VPN_GW_IP}:6789:6789"
 
   sonarr:
     container_name: sonarr
