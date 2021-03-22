@@ -89,7 +89,7 @@ services:
       - ${ROOT}/config/radarr:/config # config files
       - ${ROOT}/complete/movies:/movies # movies folder
       - ${ROOT}/downloads:/downloads # download folder
-     ports:
+    ports:
       - {VPN_GW_IP}:7878:7878
 
   plex-server:
