@@ -89,7 +89,7 @@ services:
       - "${VPN_GW_IP}:7878:7878"
 
   plex:
-    container_name: plex-server
+    container_name: plex
     image: plexinc/pms-docker:latest
     restart: unless-stopped
     environment:
