@@ -133,6 +133,7 @@ services:
     ports:
       - "${VPN_GW_IP}:6767:6767"
 
+# Trailers Download
   amtd:
     image: randomninjaatk/amtd 
     container_name: amtd
@@ -155,3 +156,17 @@ services:
       - RadarrUrl=http://radarr:7878
       - RadarrAPIkey=${RADARRAPIKEY}
     restart: unless-stopped
+
+# Plex Stats
+  tautulli:
+    image: tautulli/tautulli
+    container_name: tautulli
+    restart: unless-stopped
+    volumes:
+      - ${ROOT}/config/tautulli:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - "${VPN_GW_IP}:8181:8181"
