@@ -43,20 +43,31 @@ services:
     ports:
       - "${VPN_GW_IP}:9117:9117"
 
+#nzbget:
+#    container_name: nzbget
+#    image: linuxserver/nzbget:latest
+#    restart: unless-stopped
+#    environment:
+#      - PUID=${PUID} # default user id, defined in .env
+#      - PGID=${PGID} # default group id, defined in .env
+#      - TZ=${TZ} # timezone, defined in .env
+#    volumes:
+#      - ${ROOT}/downloads:/downloads # download folder
+#      - ${ROOT}/config/nzbget:/config # config files
+#    ports:
+#      - "${VPN_GW_IP}:6789:6789"
 
-  nzbget:
-    container_name: nzbget
-    image: linuxserver/nzbget:latest
-    restart: unless-stopped
+  flaresolverr:
+    # DockerHub mirror flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
     environment:
-      - PUID=${PUID} # default user id, defined in .env
-      - PGID=${PGID} # default group id, defined in .env
-      - TZ=${TZ} # timezone, defined in .env
-    volumes:
-      - ${ROOT}/downloads:/downloads # download folder
-      - ${ROOT}/config/nzbget:/config # config files
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
     ports:
-      - "${VPN_GW_IP}:6789:6789"
+      - "${VPN_GW_IP}:8191:8191"
+    restart: unless-stopped
 
   sonarr:
     container_name: sonarr
