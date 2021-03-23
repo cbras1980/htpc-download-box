@@ -43,7 +43,7 @@ services:
     ports:
       - "${VPN_GW_IP}:9117:9117"
 
-nzbget:
+  nzbget:
     container_name: nzbget
     image: linuxserver/nzbget:latest
     restart: unless-stopped
