@@ -132,3 +132,26 @@ services:
       - ${ROOT}/complete/tv:/tv # tv shows folder
     ports:
       - "${VPN_GW_IP}:6767:6767"
+
+  amd:
+    image: randomninjaatk/amtd 
+    container_name: amtd
+    volumes:
+      - ${ROOT}/config/amd:/config
+      - ${ROOT}/complete/movies:/movies
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - AUTOSTART=true
+      - SCRIPTINTERVAL=1h
+      - extrastype=all
+      - LANGUAGES=en,de
+      - videoformat=--format bestvideo[vcodec*=avc1]+bestaudio
+      - subtitlelanguage=en
+      - USEFOLDERS=false
+      - SINGLETRAILER=true
+      - FilePermissions=644
+      - FolderPermissions=755
+      - RadarrUrl=http://radarr:7878
+      - RadarrAPIkey=${RADARRAPIKEY}
+    restart: unless-stopped
