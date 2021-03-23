@@ -143,9 +143,9 @@ services:
       - PUID=1000
       - PGID=1000
       - AUTOSTART=true
-      - SCRIPTINTERVAL=1h
-      - extrastype=all
-      - LANGUAGES=en,de
+      - SCRIPTINTERVAL=18h
+      - extrastype=trailer
+      - LANGUAGES=en,pt
       - videoformat=--format bestvideo[vcodec*=avc1]+bestaudio
       - subtitlelanguage=en
       - USEFOLDERS=false
