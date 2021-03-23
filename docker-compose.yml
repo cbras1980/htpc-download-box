@@ -133,7 +133,7 @@ services:
     ports:
       - "${VPN_GW_IP}:6767:6767"
 
-  amd:
+  amtd:
     image: randomninjaatk/amtd 
     container_name: amtd
     volumes:
