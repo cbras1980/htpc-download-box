@@ -43,19 +43,19 @@ services:
     ports:
       - "${VPN_GW_IP}:9117:9117"
 
-#nzbget:
-#    container_name: nzbget
-#    image: linuxserver/nzbget:latest
-#    restart: unless-stopped
-#    environment:
-#      - PUID=${PUID} # default user id, defined in .env
-#      - PGID=${PGID} # default group id, defined in .env
-#      - TZ=${TZ} # timezone, defined in .env
-#    volumes:
-#      - ${ROOT}/downloads:/downloads # download folder
-#      - ${ROOT}/config/nzbget:/config # config files
-#    ports:
-#      - "${VPN_GW_IP}:6789:6789"
+nzbget:
+    container_name: nzbget
+    image: linuxserver/nzbget:latest
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID} # default user id, defined in .env
+      - PGID=${PGID} # default group id, defined in .env
+      - TZ=${TZ} # timezone, defined in .env
+    volumes:
+      - ${ROOT}/downloads:/downloads # download folder
+      - ${ROOT}/config/nzbget:/config # config files
+    ports:
+      - "${VPN_GW_IP}:6789:6789"
 
   flaresolverr:
     # DockerHub mirror flaresolverr/flaresolverr:latest
